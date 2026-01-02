@@ -1,722 +1,591 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Network - Protect Earth</title>
+    <title>竹笛艺术 - 中国传统吹管乐器技巧与知识</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
         }
-
+        
         :root {
-            --primary: #2e7d32;
-            --secondary: #4caf50;
-            --accent: #8bc34a;
-            --light: #e8f5e9;
-            --dark: #1b5e20;
-            --text: #333333;
-            --white: #ffffff;
+            --primary-color: #2a7d2a;
+            --secondary-color: #d4e6a5;
+            --accent-color: #c19a6b;
+            --light-color: #f9f7f2;
+            --dark-color: #2c3e2c;
+            --text-color: #333;
+            --text-light: #666;
         }
-
+        
         body {
-            background-color: var(--light);
-            color: var(--text);
+            background-color: var(--light-color);
+            color: var(--text-color);
             line-height: 1.6;
         }
-
-        header {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: var(--white);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
+        
         .container {
-            width: 90%;
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
         }
-
+        
+        /* 头部样式 */
+        header {
+            background: linear-gradient(rgba(42, 125, 42, 0.9), rgba(42, 125, 42, 0.95)), url('https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header-content h1 {
+            font-size: 3.2rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-content p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .flute-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        /* 导航栏 */
+        nav {
+            background-color: var(--dark-color);
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
+        
         .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 1.8rem;
-            font-weight: 700;
         }
-
+        
         .logo i {
-            font-size: 2rem;
+            margin-right: 10px;
+            color: var(--secondary-color);
         }
-
-        nav ul {
+        
+        .nav-links {
             display: flex;
             list-style: none;
         }
-
-        nav ul li {
-            margin-left: 2rem;
+        
+        .nav-links li {
+            margin-left: 1.8rem;
         }
-
-        nav ul li a {
-            color: var(--white);
+        
+        .nav-links a {
+            color: white;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            transition: all 0.3s;
             padding: 0.5rem 0;
             position: relative;
         }
-
-        nav ul li a:hover {
-            color: var(--accent);
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
         }
-
-        nav ul li a::after {
+        
+        .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
         }
-
-        nav ul li a:hover::after {
+        
+        .nav-links a:hover::after {
             width: 100%;
         }
-
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: var(--white);
+        
+        /* 主要内容区 */
+        main {
+            padding: 3rem 0;
         }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        section {
-            padding: 5rem 0;
-        }
-
+        
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
+            position: relative;
         }
-
+        
         .section-title h2 {
             font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            position: relative;
+            color: var(--primary-color);
             display: inline-block;
+            padding-bottom: 0.8rem;
         }
-
+        
         .section-title h2::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--accent);
-            border-radius: 2px;
         }
-
-        .section-title p {
-            color: var(--text);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .about-content {
+        
+        /* 技巧卡片 */
+        .techniques-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .technique-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .technique-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
             align-items: center;
         }
-
-        .about-img {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .about-img:hover img {
-            transform: scale(1.05);
-        }
-
-        .about-text h3 {
+        
+        .card-header i {
             font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
+            margin-right: 1rem;
         }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem 1rem;
-            background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-10px);
-        }
-
-        .stat-item i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .stat-item h3 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-item p {
-            color: var(--text);
-        }
-
-        .initiatives {
-            background-color: var(--white);
-        }
-
-        .initiatives-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .initiative-card {
-            background-color: var(--light);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .initiative-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .initiative-img {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .initiative-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .initiative-card:hover .initiative-img img {
-            transform: scale(1.1);
-        }
-
-        .initiative-content {
-            padding: 1.5rem;
-        }
-
-        .initiative-content h3 {
+        
+        .card-header h3 {
             font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
         }
-
-        .initiative-content p {
-            margin-bottom: 1.5rem;
+        
+        .card-content {
+            padding: 1.8rem;
         }
-
-        .cta {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: var(--white);
-            text-align: center;
-            padding: 5rem 0;
+        
+        .card-content p {
+            margin-bottom: 1.2rem;
+            color: var(--text-light);
         }
-
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+        
+        /* 知识区 */
+        .knowledge-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
-
-        .cta p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta .btn {
-            background-color: var(--white);
-            color: var(--primary);
-        }
-
-        .cta .btn:hover {
-            background-color: var(--accent);
-            color: var(--white);
-        }
-
-        footer {
-            background-color: var(--dark);
-            color: var(--white);
-            padding: 3rem 0 1rem;
-        }
-
-        .footer-content {
+        
+        .knowledge-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
-
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 10px;
+        
+        .knowledge-item {
+            padding: 1.5rem;
+            background-color: var(--light-color);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
         }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--accent);
-        }
-
-        .footer-column p {
-            margin-bottom: 1rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
+        
+        .knowledge-item h4 {
+            color: var(--primary-color);
             margin-bottom: 0.8rem;
+            font-size: 1.3rem;
         }
-
-        .footer-links li a {
-            color: var(--light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links li a:hover {
-            color: var(--accent);
-            padding-left: 5px;
-        }
-
-        .social-links {
+        
+        /* 多媒体区 */
+        .media-section {
             display: flex;
-            gap: 1rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
-
-        .social-links a {
-            display: inline-flex;
+        
+        .video-container, .audio-container {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .video-placeholder, .audio-placeholder {
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            height: 200px;
+            display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: var(--white);
-            text-decoration: none;
-            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+            color: var(--text-light);
         }
-
-        .social-links a:hover {
-            background-color: var(--accent);
-            transform: translateY(-5px);
+        
+        .video-placeholder i, .audio-placeholder i {
+            font-size: 4rem;
+            color: var(--primary-color);
+            opacity: 0.7;
         }
-
-        .copyright {
+        
+        /* 底部 */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1.5rem;
             text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        .mobile-menu {
-            display: none;
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section h3 {
             font-size: 1.5rem;
-            cursor: pointer;
+            margin-bottom: 1.2rem;
+            color: var(--secondary-color);
         }
-
-        @media (max-width: 992px) {
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .initiatives-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            margin-bottom: 0.8rem;
+            display: block;
+            text-decoration: none;
         }
-
+        
+        .footer-section a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* 响应式设计 */
         @media (max-width: 768px) {
-            .hero h1 {
+            .header-content h1 {
                 font-size: 2.5rem;
             }
             
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--primary);
+            .nav-container {
                 flex-direction: column;
-                padding: 1rem 0;
-                text-align: center;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
             }
             
-            nav ul.active {
-                display: flex;
+            .nav-links {
+                margin-top: 1rem;
             }
             
-            nav ul li {
-                margin: 0;
-                padding: 0.8rem 0;
+            .nav-links li {
+                margin: 0 0.8rem;
             }
             
-            .mobile-menu {
-                display: block;
+            .section-title h2 {
+                font-size: 2rem;
             }
             
-            .initiatives-grid {
+            .techniques-grid {
                 grid-template-columns: 1fr;
             }
             
-            .footer-content {
+            .knowledge-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .stats {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Animation for stats counter */
-        .counter {
-            transition: all 0.5s ease;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- 头部 -->
     <header>
-        <div class="container nav-container">
-            <div class="logo">
-                <i class="fas fa-seedling"></i>
-                <span>Green Network</span>
+        <div class="container header-content">
+            <div class="flute-icon">
+                <i class="fas fa-music"></i>
             </div>
-            <nav>
-                <div class="mobile-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#initiatives">Initiatives</a></li>
-                    <li><a href="#get-involved">Get Involved</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+            <h1>竹笛艺术与技巧</h1>
+            <p>探索中国传统吹管乐器的奥秘，从基础知识到高阶演奏技巧，感受竹笛的独特魅力与表现力。</p>
         </div>
     </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <h1>Protect Our Planet, Preserve Our Future</h1>
-            <p>Join the global movement to create a sustainable world through conservation, education, and community action.</p>
-            <a href="#get-involved" class="btn">Join Our Network</a>
+    
+    <!-- 导航栏 -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-flute"></i>
+                <span>竹笛艺术</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#techniques"><i class="fas fa-graduation-cap"></i> 演奏技巧</a></li>
+                <li><a href="#knowledge"><i class="fas fa-book"></i> 基础知识</a></li>
+                <li><a href="#media"><i class="fas fa-play-circle"></i> 影音欣赏</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> 关于竹笛</a></li>
+            </ul>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
+    </nav>
+    
+    <!-- 主要内容区 -->
+    <main class="container">
+        <!-- 技巧部分 -->
+        <section id="techniques">
             <div class="section-title">
-                <h2>About Green Network</h2>
-                <p>We are a global community dedicated to environmental protection and sustainable development.</p>
+                <h2>竹笛演奏核心技巧</h2>
             </div>
-            <div class="about-content">
-                <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Team planting trees">
+            
+            <div class="techniques-grid">
+                <!-- 技巧卡片1 -->
+                <div class="technique-card">
+                    <div class="card-header">
+                        <i class="fas fa-wind"></i>
+                        <h3>气息控制</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>竹笛演奏的基础在于气息控制。正确的呼吸方法能使音色饱满、音准稳定。腹式呼吸是关键，通过横膈膜的运动来控制气息流量和压力。</p>
+                        <p><strong>练习要点：</strong>长音练习是气息控制的基础，每天坚持练习长音，逐渐延长单次呼气时间，同时保持音色稳定。</p>
+                    </div>
                 </div>
-                <div class="about-text">
-                    <h3>Our Mission</h3>
-                    <p>Green Network is committed to creating a sustainable future by protecting natural ecosystems, promoting renewable energy, and empowering communities to take environmental action.</p>
-                    <p>Founded in 2010, we've grown from a small grassroots organization to an international network with over 50,000 members across 120 countries.</p>
-                    <p>Our approach combines scientific research, community engagement, and policy advocacy to address the most pressing environmental challenges of our time.</p>
-                    <a href="#" class="btn">Learn More</a>
+                
+                <!-- 技巧卡片2 -->
+                <div class="technique-card">
+                    <div class="card-header">
+                        <i class="fas fa-fingerprint"></i>
+                        <h3>指法技巧</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>竹笛指法复杂多变，包括基本指法、滑音、颤音等。正确的手指姿势和灵活的指法是演奏流畅性的保证。</p>
+                        <p><strong>练习要点：</strong>从音阶练习开始，逐渐增加速度，注意手指的独立性和协调性。练习曲目应涵盖不同指法组合。</p>
+                    </div>
+                </div>
+                
+                <!-- 技巧卡片3 -->
+                <div class="technique-card">
+                    <div class="card-header">
+                        <i class="fas fa-language"></i>
+                        <h3>吐音技巧</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>吐音是竹笛演奏中区分音符的重要技巧，分为单吐、双吐和三吐。不同的吐音技巧能创造丰富的节奏和音效。</p>
+                        <p><strong>练习要点：</strong>从慢速开始，确保每个吐音清晰、均匀。逐渐加快速度，同时注意与气息控制的配合。</p>
+                    </div>
                 </div>
             </div>
-            <div class="stats">
-                <div class="stat-item">
-                    <i class="fas fa-tree"></i>
-                    <h3 class="counter" data-target="2500000">0</h3>
-                    <p>Trees Planted</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-users"></i>
-                    <h3 class="counter" data-target="50000">0</h3>
-                    <p>Active Members</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-globe-americas"></i>
-                    <h3 class="counter" data-target="120">0</h3>
-                    <p>Countries Reached</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-recycle"></i>
-                    <h3 class="counter" data-target="1500">0</h3>
-                    <p>Cleanup Projects</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Initiatives Section -->
-    <section class="initiatives" id="initiatives">
-        <div class="container">
+        </section>
+        
+        <!-- 基础知识部分 -->
+        <section id="knowledge">
             <div class="section-title">
-                <h2>Our Initiatives</h2>
-                <p>Discover the key programs and projects we're implementing to protect our planet.</p>
+                <h2>竹笛基础知识</h2>
             </div>
-            <div class="initiatives-grid">
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://dialogue.earth/content/uploads/2021/04/lessons-from-the-rush-to-reforest-china-dialogue-2400x1599.jpg" alt="Reforestation">
+            
+            <div class="knowledge-section">
+                <p>竹笛是中国传统吹管乐器，已有八千多年的历史。笛身通常由竹子制成，音色清脆悦耳，表现力丰富。竹笛主要分为曲笛和梆笛两大类，在形制、音域和音乐风格上有所不同。</p>
+                
+                <div class="knowledge-grid">
+                    <div class="knowledge-item">
+                        <h4>竹笛构造</h4>
+                        <p>竹笛由笛身、吹孔、膜孔、指孔和出音孔组成。笛膜贴在膜孔上，振动产生独特音色。</p>
                     </div>
-                    <div class="initiative-content">
-                        <h3>Global Reforestation</h3>
-                        <p>Planting millions of trees worldwide to restore ecosystems, combat climate change, and protect biodiversity.</p>
-                        <a href="#" class="btn">Learn More</a>
+                    
+                    <div class="knowledge-item">
+                        <h4>笛膜知识</h4>
+                        <p>笛膜选用芦苇内膜，粘贴技巧直接影响音色。好的笛膜应薄而均匀，振动充分。</p>
                     </div>
-                </div>
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Ocean Conservation">
+                    
+                    <div class="knowledge-item">
+                        <h4>调性与音域</h4>
+                        <p>常用竹笛有C、D、E、F、G等调。不同调的笛子音域不同，适合演奏不同风格的乐曲。</p>
                     </div>
-                    <div class="initiative-content">
-                        <h3>Ocean Conservation</h3>
-                        <p>Protecting marine ecosystems, reducing plastic pollution, and promoting sustainable fishing practices.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Renewable Energy">
-                    </div>
-                    <div class="initiative-content">
-                        <h3>Renewable Energy</h3>
-                        <p>Promoting solar, wind, and other clean energy sources to reduce dependence on fossil fuels.</p>
-                        <a href="#" class="btn">Learn More</a>
+                    
+                    <div class="knowledge-item">
+                        <h4>保养维护</h4>
+                        <p>竹笛应避免暴晒、潮湿，演奏后要擦干内壁。定期上油保养可防止开裂。</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta" id="get-involved">
-        <div class="container">
-            <h2>Join Our Global Movement</h2>
-            <p>Together, we can create a sustainable future for generations to come. Every action counts, no matter how small.</p>
-            <a href="#" class="btn">Become a Member</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
+        </section>
+        
+        <!-- 多媒体部分 -->
+        <section id="media">
+            <div class="section-title">
+                <h2>竹笛影音欣赏</h2>
+            </div>
+            
+            <div class="media-section">
+                <div class="video-container">
+                    <h3><i class="fas fa-video"></i> 竹笛教学视频</h3>
+                    <p>观看专业竹笛演奏家的技巧演示和讲解，直观学习各种演奏方法。</p>
+                    <div class="video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-light);">提示：此处可嵌入教学视频，如气息控制、指法练习等</p>
+                </div>
+                
+                <div class="audio-container">
+                    <h3><i class="fas fa-music"></i> 经典笛曲欣赏</h3>
+                    <p>聆听竹笛经典名曲，感受不同风格竹笛音乐的魅力。</p>
+                    <div class="audio-placeholder">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-light);">提示：此处可嵌入音频播放器，播放《姑苏行》、《扬鞭催马运粮忙》等名曲</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer id="about">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Green Network</h3>
-                    <p>We are dedicated to protecting our planet through collaborative action, education, and sustainable solutions.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+                <div class="footer-section">
+                    <h3>关于竹笛艺术</h3>
+                    <p>竹笛是中国最古老的乐器之一，音色悠扬动听，表现力丰富。本网站致力于分享竹笛演奏技巧、基础知识和传统文化，帮助爱好者更好地学习和欣赏这一传统艺术。</p>
                 </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#initiatives">Initiatives</a></li>
-                        <li><a href="#get-involved">Get Involved</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+                
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <a href="#techniques">演奏技巧</a>
+                    <a href="#knowledge">基础知识</a>
+                    <a href="#media">影音欣赏</a>
                 </div>
-                <div class="footer-column">
-                    <h3>Our Programs</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Reforestation</a></li>
-                        <li><a href="#">Ocean Cleanup</a></li>
-                        <li><a href="#">Wildlife Protection</a></li>
-                        <li><a href="#">Climate Education</a></li>
-                        <li><a href="#">Sustainable Agriculture</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Copper Creek Drive, New York</p>
-                    <p><i class="fas fa-phone"></i> +1 (312) 171-0771</p>
-                    <p><i class="fas fa-envelope"></i> support@greennetwork.org</p>
+                
+                <div class="footer-section">
+                    <h3>联系我们</h3>
+                    <p><i class="fas fa-envelope"></i> contact@flute-art.com</p>
+                    <p><i class="fas fa-phone"></i> +86 123-4567-8900</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 中国·北京</p>
                 </div>
             </div>
+            
             <div class="copyright">
-                <p>&copy; 2025 Green Network. All rights reserved.</p>
+                <p>&copy; 2023 竹笛艺术分享网. 保留所有权利. 本网站内容仅供学习交流使用.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile Menu Toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('active');
-        });
-
-        // Counter Animation
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            const speed = 200; // The lower the slower
+        // 简单的交互效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 导航栏滚动效果
+            const navLinks = document.querySelectorAll('.nav-links a');
             
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                
-                const inc = target / speed;
-                
-                if(count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(animateCounters, 1);
-                } else {
-                    counter.innerText = target;
-                }
-            });
-        }
-
-        // Initialize counters when page loads
-        window.addEventListener('load', animateCounters);
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetSection.offsetTop - 80,
                         behavior: 'smooth'
                     });
-                    
-                    document.querySelector('nav ul').classList.remove('active');
-                }
+                });
             });
+            
+            // 卡片悬停效果增强
+            const techniqueCards = document.querySelectorAll('.technique-card');
+            
+            techniqueCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const icon = this.querySelector('.card-header i');
+                    icon.style.transform = 'scale(1.2)';
+                    icon.style.transition = 'transform 0.3s';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    const icon = this.querySelector('.card-header i');
+                    icon.style.transform = 'scale(1)';
+                });
+            });
+            
+            // 模拟视频/音频播放器点击
+            const mediaPlaceholders = document.querySelectorAll('.video-placeholder, .audio-placeholder');
+            
+            mediaPlaceholders.forEach(placeholder => {
+                placeholder.addEventListener('click', function() {
+                    alert('在实际网站中，这里会嵌入视频或音频播放器。\n\n您可以替换为：\n1. YouTube/Vimeo 视频嵌入代码\n2. 音频播放器（如HTML5 audio标签）\n3. 第三方媒体播放器');
+                });
+            });
+            
+            // 页面加载动画
+            const headerTitle = document.querySelector('.header-content h1');
+            const headerParagraph = document.querySelector('.header-content p');
+            
+            // 初始状态
+            headerTitle.style.opacity = '0';
+            headerTitle.style.transform = 'translateY(-20px)';
+            headerParagraph.style.opacity = '0';
+            headerParagraph.style.transform = 'translateY(20px)';
+            
+            // 动画效果
+            setTimeout(() => {
+                headerTitle.style.transition = 'opacity 1s, transform 1s';
+                headerTitle.style.opacity = '1';
+                headerTitle.style.transform = 'translateY(0)';
+                
+                headerParagraph.style.transition = 'opacity 1s 0.3s, transform 1s 0.3s';
+                headerParagraph.style.opacity = '1';
+                headerParagraph.style.transform = 'translateY(0)';
+            }, 300);
         });
     </script>
 </body>
-
 </html>
